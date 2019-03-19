@@ -1,0 +1,5 @@
+
+label_map_path: '/home/ubuntu/data/tensorflow/my_workspace/training_demo/annotations/label_map_lila.pbtxt'
+tf_record_input_reader: { input_path: '/home/ubuntu/data/tensorflow/my_workspace/training_demo/annotations/test_schneider.record' }
+shuffle:false
+

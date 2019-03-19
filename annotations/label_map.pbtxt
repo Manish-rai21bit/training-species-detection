@@ -1,0 +1,230 @@
+item { 
+ id:1 
+ name:'Wildebeest' 
+ } 
+
+item { 
+ id:2 
+ name:'Zebra' 
+ } 
+
+item { 
+ id:3 
+ name:'Giraffe' 
+ } 
+
+item { 
+ id:4 
+ name:'GazelleThomsons' 
+ } 
+
+item { 
+ id:5 
+ name:'Buffalo' 
+ } 
+
+item { 
+ id:6 
+ name:'GuineaFowl' 
+ } 
+
+item { 
+ id:7 
+ name:'OtherBird' 
+ } 
+
+item { 
+ id:8 
+ name:'Baboon' 
+ } 
+
+item { 
+ id:9 
+ name:'HyenaSpotted' 
+ } 
+
+item { 
+ id:10 
+ name:'Hartebeest' 
+ } 
+
+item { 
+ id:11 
+ name:'KoriBustard' 
+ } 
+
+item { 
+ id:12 
+ name:'Impala' 
+ } 
+
+item { 
+ id:13 
+ name:'WattledStarling' 
+ } 
+
+item { 
+ id:14 
+ name:'Warthog' 
+ } 
+
+item { 
+ id:15 
+ name:'Reedbuck' 
+ } 
+
+item { 
+ id:16 
+ name:'GazelleGrants' 
+ } 
+
+item { 
+ id:17 
+ name:'Human' 
+ } 
+
+item { 
+ id:18 
+ name:'DikDik' 
+ } 
+
+item { 
+ id:19 
+ name:'CattleEgret' 
+ } 
+
+item { 
+ id:20 
+ name:'Elephant' 
+ } 
+
+item { 
+ id:21 
+ name:'Eland' 
+ } 
+
+item { 
+ id:22 
+ name:'Oxpecker' 
+ } 
+
+item { 
+ id:23 
+ name:'GreyBackedFiscal' 
+ } 
+
+item { 
+ id:24 
+ name:'Stork' 
+ } 
+
+item { 
+ id:25 
+ name:'Hippopotamus' 
+ } 
+
+item { 
+ id:26 
+ name:'Topi' 
+ } 
+
+item { 
+ id:27 
+ name:'Bushbuck' 
+ } 
+
+item { 
+ id:28 
+ name:'Cheetah' 
+ } 
+
+item { 
+ id:29 
+ name:'BuffCrestedBustard' 
+ } 
+
+item { 
+ id:30 
+ name:'SuperbStarling' 
+ } 
+
+item { 
+ id:31 
+ name:'Lion' 
+ } 
+
+item { 
+ id:32 
+ name:'Aardvark' 
+ } 
+
+item { 
+ id:33 
+ name:'Jackal' 
+ } 
+
+item { 
+ id:34 
+ name:'Leopard' 
+ } 
+
+item { 
+ id:35 
+ name:'Ostrich' 
+ } 
+
+item { 
+ id:36 
+ name:'Porcupine' 
+ } 
+
+item { 
+ id:37 
+ name:'SecretaryBird' 
+ } 
+
+item { 
+ id:38 
+ name:'WhiteHeadBuffaloWeaver' 
+ } 
+
+item { 
+ id:39 
+ name:'Mongoose' 
+ } 
+
+item { 
+ id:40 
+ name:'Aardwolf' 
+ } 
+
+item { 
+ id:41 
+ name:'Hare' 
+ } 
+
+item { 
+ id:42 
+ name:'Serval' 
+ } 
+
+item { 
+ id:43 
+ name:'Waterbuck' 
+ } 
+
+item { 
+ id:44 
+ name:'Rodent' 
+ } 
+
+item { 
+ id:45 
+ name:'Rhinoceros' 
+ } 
+
+item { 
+ id:46 
+ name:'VervetMonkey' 
+ } 
+

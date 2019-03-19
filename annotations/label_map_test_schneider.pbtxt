@@ -1,0 +1,190 @@
+item { 
+ id:1 
+ name:'Human' 
+ } 
+
+item { 
+ id:2 
+ name:'GazelleGrants' 
+ } 
+
+item { 
+ id:3 
+ name:'Reedbuck' 
+ } 
+
+item { 
+ id:4 
+ name:'DikDik' 
+ } 
+
+item { 
+ id:5 
+ name:'Zebra' 
+ } 
+
+item { 
+ id:6 
+ name:'Porcupine' 
+ } 
+
+item { 
+ id:7 
+ name:'GazelleThomsons' 
+ } 
+
+item { 
+ id:8 
+ name:'HyenaSpotted' 
+ } 
+
+item { 
+ id:9 
+ name:'Warthog' 
+ } 
+
+item { 
+ id:10 
+ name:'Impala' 
+ } 
+
+item { 
+ id:11 
+ name:'Elephant' 
+ } 
+
+item { 
+ id:12 
+ name:'Giraffe' 
+ } 
+
+item { 
+ id:13 
+ name:'Mongoose' 
+ } 
+
+item { 
+ id:14 
+ name:'Buffalo' 
+ } 
+
+item { 
+ id:15 
+ name:'Hartebeest' 
+ } 
+
+item { 
+ id:16 
+ name:'GuineaFowl' 
+ } 
+
+item { 
+ id:17 
+ name:'Wildebeest' 
+ } 
+
+item { 
+ id:18 
+ name:'Leopard' 
+ } 
+
+item { 
+ id:19 
+ name:'Ostrich' 
+ } 
+
+item { 
+ id:20 
+ name:'Lion' 
+ } 
+
+item { 
+ id:21 
+ name:'KoriBustard' 
+ } 
+
+item { 
+ id:22 
+ name:'OtherBird' 
+ } 
+
+item { 
+ id:24 
+ name:'Bushbuck' 
+ } 
+
+item { 
+ id:25 
+ name:'Jackal' 
+ } 
+
+item { 
+ id:26 
+ name:'Cheetah' 
+ } 
+
+item { 
+ id:27 
+ name:'Eland' 
+ } 
+
+item { 
+ id:28 
+ name:'Aardwolf' 
+ } 
+
+item { 
+ id:29 
+ name:'Hippopotamus' 
+ } 
+
+item { 
+ id:31 
+ name:'Aardvark' 
+ } 
+
+item { 
+ id:32 
+ name:'Hare' 
+ } 
+
+item { 
+ id:33 
+ name:'Baboon' 
+ } 
+
+item { 
+ id:34 
+ name:'VervetMonkey' 
+ } 
+
+item { 
+ id:35 
+ name:'Waterbuck' 
+ } 
+
+item { 
+ id:36 
+ name:'SecretaryBird' 
+ } 
+
+item { 
+ id:37 
+ name:'Serval' 
+ } 
+
+item { 
+ id:39 
+ name:'Topi' 
+ } 
+
+item { 
+ id:41 
+ name:'Rodent' 
+ } 
+
+item { 
+ id:46 
+ name:'Rhinoceros' 
+ } 
+
