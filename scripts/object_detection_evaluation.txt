@@ -1,0 +1,18 @@
+SPLIT=test  # or test
+# NUM_SHARDS=1  # Set to NUM_GPUS if using the parallel evaluation script above
+
+# mkdir -p ${SPLIT}_eval_metrics
+
+echo "
+label_map_path: '/home/ubuntu/data/tensorflow/my_workspace/training_demo/annotations/label_map_lila.pbtxt'
+tf_record_input_reader: { input_path: '/home/ubuntu/data/tensorflow/my_workspace/training_demo/Predictions/test_schneider.record' }
+" > /home/ubuntu/data/tensorflow/my_workspace/training_demo/test_eval_metrics/test_input_config.pbtxt
+
+echo "
+metrics_set: 'coco_detection_metrics'
+" > /home/ubuntu/data/tensorflow/my_workspace/training_demo/test_eval_metrics/test_eval_config.pbtxt
+
+python /home/ubuntu/data/tensorflow/models/research/object_detection/metrics/offline_eval_map_corloc.py \
+  --eval_dir='/home/ubuntu/data/tensorflow/my_workspace/training_demo/test_eval_metrics' \
+  --eval_config_path='/home/ubuntu/data/tensorflow/my_workspace/training_demo/test_eval_metrics/test_eval_config.pbtxt' \
+  --input_config_path='/home/ubuntu/data/tensorflow/my_workspace/training_demo/test_eval_metrics/test_input_config.pbtxt'

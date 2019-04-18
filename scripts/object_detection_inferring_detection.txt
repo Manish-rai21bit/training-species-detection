@@ -1,0 +1,32 @@
+# running inference on the test images
+# SPLIT=validation  # or test
+TF_RECORD_FILES='/home/ubuntu/data/tensorflow/my_workspace/camera-trap-detection/data/LILA/ss_all/snapshot_serengeti_s01_s06-10000-20000.record'
+# OUTPUT_TFR_PATH ='/home/ubuntu/data/tensorflow/my_workspace/training_demo/Predictions/test_schneider.record'
+OUTPUT_INFERENCE_GRAPH='/home/ubuntu/data/tensorflow/my_workspace/training_demo/trained-inference-graphs/output_inference_graph/frozen_inference_graph.pb'
+
+python /home/ubuntu/data/tensorflow/models/research/object_detection/inference/infer_detections.py \
+  --input_tfrecord_paths=$TF_RECORD_FILES \
+  --output_tfrecord_path='/home/ubuntu/data/tensorflow/my_workspace/training_demo/Predictions/snapshot_serengeti_s01_s06-10000-20000.record' \
+  --inference_graph=$OUTPUT_INFERENCE_GRAPH \
+  --discard_image_pixels
+
+
+
+  annotations/lila_eval.record
+/data/LILA/ss_all/snapshot_serengeti_s01_s06-0-10000.record
+
+/home/ubuntu/data/tensorflow/my_workspace/training_demo/annotations/test_schneider.record
+
+
+# round 1 snapshot_serengeti_s01_s06-10000-20000.record
+# round 2 snapshot_serengeti_s01_s06-10000-20000.record
+
+OUTPUT_INFERENCE_GRAPH='/home/ubuntu/data/tensorflow/my_workspace/training_demo/backup/jan132019_ckpt.378955plus71016/output_inference_graph/frozen_inference_graph.pb'
+for entry in "/home/ubuntu/species_detection/data/TFrecords"/*
+do
+    python /home/ubuntu/species_detection/tensorflow/models/research/object_detection/inference/infer_detections.py \
+      --input_tfrecord_paths=$entry \
+      --output_tfrecord_path='/home/ubuntu/species_detection/test_eco1/'$(basename $entry) \
+      --inference_graph=$OUTPUT_INFERENCE_GRAPH \
+      --discard_image_pixels
+done
