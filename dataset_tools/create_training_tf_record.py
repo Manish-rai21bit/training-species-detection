@@ -34,10 +34,10 @@ from PIL import Image
 # imports for sharding
 import contextlib2
 from object_detection.dataset_tools import tf_record_creation_util
+from object_detection.utils import dataset_util
 
-from data.utils import dataset_util
 import data_prep.data_prep_utils as dataprep_utils
-import data.image as img
+import data_prep.image as img
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
