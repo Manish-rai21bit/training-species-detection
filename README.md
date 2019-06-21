@@ -59,6 +59,7 @@ training-species-detection
   2. **Training the object detector** using the Tensorflow's Object Detection API - In this step we use the TF Records created above to fine-tune a pre-trained model to detect animals from the Serengeti National Park. Transfer Learning can be used on any other location as well. Parameters that need changing before trianing starts:
 
     1. The configuration file in the 'training' directory needs to be updated with the filepath of training and evaluation TF Records:
+    
 
     ```
     train_input_reader: {
