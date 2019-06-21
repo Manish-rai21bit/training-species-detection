@@ -30,7 +30,7 @@ The functions included are:
 
 import tensorflow as tf
 import os, csv, io
-from PIL import Image
+from PIL import Image, ImageFile
 # imports for sharding
 import contextlib2
 from object_detection.dataset_tools import tf_record_creation_util
