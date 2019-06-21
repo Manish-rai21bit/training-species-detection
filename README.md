@@ -38,6 +38,7 @@ training-species-detection
 
 
 1. Training Species Detection Model:
+
   1. **Data Preparation** (TF Records encoder from CSV) - Training the model from the tensorflow's object_detection_api can be done faster with dataset encoded as TF Records. TF Records can be created by the Script below:
 
   ```
@@ -54,7 +55,9 @@ training-species-detection
   ```
   scp -i ~/MyKeyPair.pem  /panfs/roc/groups/5/packerc/rai00007/my_workspace/training-species-detection/annotations/TestTFR/*  ubuntu@ec2-18-221-73-140.us-east-2.compute.amazonaws.com:/home/ubuntu/species_detection/my_workspace/training-species-detection/annotations/TestTFR/
   ```
+
   2. **Training the object detector** using the Tensorflow's Object Detection API - In this step we use the TF Records created above to fine-tune a pre-trained model to detect animals from the Serengeti National Park. Transfer Learning can be used on any other location as well. Parameters that need changing before trianing starts:
+
     1. The configuration file in the 'training' directory needs to be updated with the filepath of training and evaluation TF Records:
 
     ```
@@ -74,7 +77,7 @@ training-species-detection
     }
     ```
 
-    The below script can be used to initiate the model training:
+The below script can be used to initiate the model training:
     ```
     cd training-species-detection/
 
@@ -91,13 +94,13 @@ training-species-detection
         --alsologtostderr
     ```
 
-    The training process can be monitored on tensorboard. If you are on AWS and want to create a tunnel/forward port to local then you can use this script:
+The training process can be monitored on tensorboard. If you are on AWS and want to create a tunnel/forward port to local then you can use this script:
 
     ```
     tensorboard --logdir=training --host localhost --port=6006
     ```
 
-    On a different shell:
+On a different shell:
     ```
     ssh -N -L 6006:localhost:6006 -i ~/.ssh/MyKeyPair.pem ubuntu@ec2-18-221-73-140.us-east-2.compute.amazonaws.com
     ```
