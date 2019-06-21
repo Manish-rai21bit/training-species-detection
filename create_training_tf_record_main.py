@@ -11,8 +11,8 @@ python create_training_tf_record_main.py \
 
 import argparse
 
-import data_prep.data_prep_utils as dataprep_utils
-import data_prep.create_training_tf_record as tfr
+import dataset_tools.data_prep_utils as dataprep_utils
+import dataset_tools.create_training_tf_record as tfr
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
