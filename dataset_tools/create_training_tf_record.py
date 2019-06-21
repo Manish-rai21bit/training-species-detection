@@ -133,9 +133,11 @@ def encode_to_tfr_record(bounding_box_dict, label_map, out_tfr_file, num_shards=
         output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
         tf_record_close_stack, out_tfr_file, num_shards
         )
-        for index, example in enumerate(bounding_box_dict):
+        index = 0
+        for k, v in bounding_box_dict.items():
             if index%1000==0:
                 print("Processing image number {0}".format(index))
-            tf_example = create_tf_example(example)
+            tf_example = create_tf_example(v, label_map)
             output_shard_index = index % num_shards
             output_tfrecords[output_shard_index].write(tf_example.SerializeToString())
+            index+=1
