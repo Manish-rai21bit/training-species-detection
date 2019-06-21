@@ -78,6 +78,7 @@ training-species-detection
     ```
 
 The below script can be used to initiate the model training:
+
     ```
     cd training-species-detection/
 
