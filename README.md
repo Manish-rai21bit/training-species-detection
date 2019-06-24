@@ -106,3 +106,20 @@ On a different shell:
     ```
     ssh -N -L 6006:localhost:6006 -i ~/.ssh/MyKeyPair.pem ubuntu@ec2-18-221-73-140.us-east-2.compute.amazonaws.com
     ```
+2. **Graph Export**: The training process will store the latest 5 checkpoints that can be exported and used for predictions on incoming images. A trained checkpoint can be exported using the script:
+
+
+Before we can export the trained graph, we'll need to remove the directory trained-inference-graphs/output_inference_graph
+```
+rm -r trained-inference-graphs/output_inference_graph
+```
+
+```
+python export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path training/faster_rcnn_resnet101_coco.config \
+    --trained_checkpoint_prefix training/model.ckpt-<checkpoint number> \
+    --output_directory trained-inference-graphs/output_inference_graph
+```
+
+3. **Making Predictions**: One of the easiest way to visualise predictions on a few images is using the off the shelf notebook available [here]()
