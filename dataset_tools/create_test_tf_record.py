@@ -2,14 +2,19 @@
 A script to encode images to TF Record for testing purposes.
 
 Usage:
-python dataset_tools.create_test_tf_record.py \
+Do include the tensorflow directories in PYTHONPATH using:
+export PYTHONPATH="${PYTHONPATH}:/home/packerc/rai00007/tensorflow/models/"
+export PYTHONPATH="${PYTHONPATH}:/home/packerc/rai00007/tensorflow/models/research"
+export PYTHONPATH="${PYTHONPATH}:/home/packerc/rai00007/tensorflow/models/research/slim/"
+
+python dataset_tools/create_test_tf_record.py \
     --image_list_csv "./Data/dataset_for_testing/msi_snapshot_serengeti.csv" \
     --output_tfrecord_file "./test.record"
 """
 
 import os, sys, csv, argparse
 import tensorflow as tf
-import utils.dataset_util
+import dataset_util
 from PIL import ImageFile
 # imports for sharding
 import contextlib2
