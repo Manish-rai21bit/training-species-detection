@@ -14,7 +14,7 @@ python dataset_tools/create_test_tf_record.py \
 
 import os, sys, csv, argparse
 import tensorflow as tf
-import dataset_util
+import object_detection.utils.dataset_util as dataset_util
 from PIL import ImageFile
 # imports for sharding
 import contextlib2
