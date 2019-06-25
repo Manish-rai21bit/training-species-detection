@@ -1,5 +1,10 @@
 """
 A script to encode images to TF Record for testing purposes.
+
+Usage:
+python dataset_tools.create_test_tf_record.py \
+    --image_list_csv "./Data/dataset_for_testing/msi_snapshot_serengeti.csv" \
+    --output_tfrecord_file "./test.record"
 """
 
 import os, sys, csv, argparse
