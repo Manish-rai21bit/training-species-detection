@@ -9,7 +9,8 @@ export PYTHONPATH="${PYTHONPATH}:/home/packerc/rai00007/tensorflow/models/resear
 
 python dataset_tools/create_test_tf_record.py \
     --image_list_csv "./Data/dataset_for_testing/msi_snapshot_serengeti.csv" \
-    --output_tfrecord_file "./test.record"
+    --output_tfrecord_file "./test.record" \
+    --num_shards 1
 """
 
 import os, sys, csv, argparse
