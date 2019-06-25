@@ -124,7 +124,7 @@ python export_inference_graph.py \
 
 3. **Making Predictions**: One of the easiest way to visualise predictions on a few images is using the off the shelf notebook available [here](https://github.com/Manish-rai21bit/training-species-detection/blob/master/object_detection_tutorial.ipynb)
 
-Apart from this, in case we could make predictions on a large number of images more efficiently. For this to happen, we first need to convert the raw images into TF Records using the [script](https://github.com/Manish-rai21bit/camera-trap-detection/blob/master/data_prep/msi_image_TFRecord_encoding.py). Detailed instruction can for running this script can be found in the code's doc string.
+Apart from this, in case we could make predictions on a large number of images more efficiently. For this to happen, we first need to convert the raw images into TF Records using the [script](https://github.com/Manish-rai21bit/training-species-detection/blob/master/dataset_tools/create_test_tf_record.py). Detailed instruction can for running this script can be found in the code's doc string. 
 
 Once we have the images encoded as TF records on which we want to run predictions, the below script can be used to make predictions:
 
