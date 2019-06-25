@@ -61,8 +61,7 @@ def create_tf_example(data_dict):
 """This iterates over each dictionary item, creates tf examples,
     serializes the tfrecord examples and writes to a tfrecord file!!!
     As of now, it saves the TFRecord file in the home directory where the code is executed"""
-def encode_to_tfr_record(test_feature, out_tfr_file):
-    num_shards=100
+def encode_to_tfr_record(test_feature, out_tfr_file, num_shards=1):
     with contextlib2.ExitStack() as tf_record_close_stack:
         output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
             tf_record_close_stack, out_tfr_file, num_shards)
@@ -72,7 +71,7 @@ def encode_to_tfr_record(test_feature, out_tfr_file):
             output_tfrecords[output_shard_index].write(tf_example.SerializeToString())
 
 
-def main():
+def main(image_list_csv, output_tfrecord_file, num_shards):
     with open(image_list_csv,'r') as f:
         l = []
         rd = csv.reader(f)
@@ -80,7 +79,7 @@ def main():
             l.append(val)
 
     event_dict = l[0]
-    encode_to_tfr_record(event_dict, output_tfrecord_file)
+    encode_to_tfr_record(event_dict, output_tfrecord_file, num_shards)
 
 if  __name__=='__main__':
     parser = argparse.ArgumentParser()
@@ -92,7 +91,11 @@ if  __name__=='__main__':
         "--output_tfrecord_file", type=str, required=True,
         help="path to the TF Records containing the encoded images"
         )
+    parser.add_argument(
+        "--num_shards", type=int, required=False, default=1,
+        help="Number of shard to create"
+        )
 
     args = parser.parse_args()
 
-    main(args.image_list_csv, args.output_tfrecord_file)
+    main(args.image_list_csv, args.output_tfrecord_file, args.num_shards)
