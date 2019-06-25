@@ -39,7 +39,7 @@ training-species-detection
 
 1. Training Species Detection Model:
 
-  1. **Data Preparation** (TF Records encoder from CSV) - Training the model from the tensorflow's object_detection_api can be done faster with dataset encoded as TF Records. TF Records can be created by the Script below:
+  - **Data Preparation** (TF Records encoder from CSV) - Training the model from the tensorflow's object_detection_api can be done faster with dataset encoded as TF Records. TF Records can be created by the Script below:
 
   ```
   python create_training_tf_record_main.py \
@@ -56,7 +56,7 @@ training-species-detection
   scp -i ~/MyKeyPair.pem  /panfs/roc/groups/5/packerc/rai00007/my_workspace/training-species-detection/annotations/TestTFR/*  ubuntu@ec2-18-221-73-140.us-east-2.compute.amazonaws.com:/home/ubuntu/species_detection/my_workspace/training-species-detection/annotations/TestTFR/
   ```
 
-  2. **Training the object detector** using the Tensorflow's Object Detection API - In this step we use the TF Records created above to fine-tune a pre-trained model to detect animals from the Serengeti National Park. Transfer Learning can be used on any other location as well. Parameters that need changing before trianing starts:
+  - **Training the object detector** using the Tensorflow's Object Detection API - In this step we use the TF Records created above to fine-tune a pre-trained model to detect animals from the Serengeti National Park. Transfer Learning can be used on any other location as well. Parameters that need changing before trianing starts:
 
 The configuration file in the 'training' directory needs to be updated with the filepath of training and evaluation TF Records:
 
@@ -124,7 +124,7 @@ python export_inference_graph.py \
 
 3. **Making Predictions**: One of the easiest way to visualise predictions on a few images is using the off the shelf notebook available [here](https://github.com/Manish-rai21bit/training-species-detection/blob/master/object_detection_tutorial.ipynb)
 
-Apart from this, in case we could make predictions on a large number of images more efficiently. For this to happen, we first need to convert the raw images into TF Records using the [script](https://github.com/Manish-rai21bit/training-species-detection/blob/master/dataset_tools/create_test_tf_record.py). Detailed instruction can for running this script can be found in the code's doc string. 
+Apart from this, in case we could make predictions on a large number of images more efficiently. For this to happen, we first need to convert the raw images into TF Records using the [script](https://github.com/Manish-rai21bit/training-species-detection/blob/master/dataset_tools/create_test_tf_record.py). Detailed instruction can for running this script can be found in the code's doc string.
 
 Once we have the images encoded as TF records on which we want to run predictions, the below script can be used to make predictions:
 
@@ -135,3 +135,16 @@ python <path to tensorflow/models/research/>object_detection/inference/infer_det
   --inference_graph=<'path to the trained graph, i.e - trained-inference-graphs/output_inference_graph/frozen_inference_graph.pb'> \
   --discard_image_pixels
 ```
+
+4. **Visualising Predictions**:
+
+```
+python /home/packerc/rai00007/camera-trap-detection/tfr_visualization_main.py \
+    --filename_list 'test_output.record' \
+    --outfile 'Data/images/visual_img/' \
+    --label_map_json '/home/packerc/rai00007/camera-trap-detection/data/LILA/label_map.json' \
+    --num_batches 4 \
+    --TFRecord_type 'Pred' \
+    --score_threshold 0.5
+```
+5. **Decoding Prediction TF Records**:
