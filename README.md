@@ -171,4 +171,13 @@ python /home/packerc/rai00007/camera-trap-detection/tfr_visualization_main.py \
     --score_threshold 0.5
 ```
 5. **Decoding Prediction TF Records**:
-After all this, we'd want to export the predictions in a nice CSV and the series of scripts below will help extract the TF Records with predictions into a CSV format.
+After all this, we'd want to export the predictions in a nice CSV and the scripts below will help extract the TF Records with predictions into a CSV format. The csv contains the following [columns](https://github.com/Manish-rai21bit/training-species-detection/blob/master/Predictions/test.csv)
+
+
+```
+python predictorExtractor_main.py \
+    --tfrecord_path_list 'test_output.record' \
+    --output_csv '/home/ubuntu/species_detection/my_workspace/training-species-detection/Predictions/test.csv' \
+    --label_map_json '/home/ubuntu/data/tensorflow/my_workspace/camera-trap-detection/data/LILA/label_map.json' \
+    --score_threshold 0.5
+```
