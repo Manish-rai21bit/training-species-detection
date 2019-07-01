@@ -1,17 +1,37 @@
 # Training Species Detection
+**Detecting Animals and getting species level counts**
+
+This repository contains procedures and codes for training an object detection architecture on wildlife camera-trap images. It uses transfer learning to finetune a pre-trained model like SSD, YOLO, or Faster R-CNN. For this particular work, I have trained a Faster R-CNN architecture with Resnet-101 encodings.
+
+
 Repository for:
-1. Training species detection model.
-2. Holding trained graph.
-3. Holding predictions.
+1. Training species detection model
+2. Creating tensorflow graph with trained model
+3. Making predictions
+
+## Installations:
+1. Python3 (https://www.python.org)
+2. tensorflow 1.9+ (I've build this in tensorflow 1.9) (https://www.tensorflow.org)
+3. tensorflow's [object_detection_api](https://github.com/tensorflow/models/tree/master/research/object_detection) - clone the repository and add it to your local PYTHONPATH:
+
+```
+export PYTHONPATH="${PYTHONPATH}:<path to cloned tensorflow object detection api>/tensorflow/models/"
+export PYTHONPATH="${PYTHONPATH}:<path to cloned tensorflow object detection api>/tensorflow/models/research"
+export PYTHONPATH="${PYTHONPATH}:<path to cloned tensorflow object detection api>/tensorflow/models/research/slim/"
+```
+4. Dependent installations for tensorflow's [object_detection_api](https://github.com/tensorflow/models/tree/master/research/object_detection) should be installed by following the instructions mentioned [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)  
+5. Clone this [repository](https://github.com/Manish-rai21bit/training-species-detection)
+
+
 
 ## Architecture for Detection
-Faster R-CNN architecture pre-trained on the COCO dataset was used to initialise the fine-tuning of the graph.  
+Faster R-CNN architecture pre-trained on the COCO dataset was used to initialise and fine-tuning of the graph.  
 
 ## Dataset
 **Initial Training** - Snapshot Serengeti data from the [LILA Repository](http://lila.science/datasets/snapshot-serengeti) (Season 1 - Season 6) was used for initial training. 38,000 images of 48 different species was used for this round of training.
 
 
-**Bootstrapping Round Training** - More training dataset were generated through a weak supervision. We call this bootstrapping procedure. Data from Season 1 - Season 6 from Snapshot Serengeti was used to generate training dataset using the bootstrapping procedure.
+**Bootstrapping Round Training** - More training dataset were generated through a weak supervision. We call this bootstrapping procedure. Data from Season 1 - Season 6 from Snapshot Serengeti was used to generate training dataset using the bootstrapping procedure. The codes for bootstrapping can be found in this repo [camera-trap-detection](https://github.com/Manish-rai21bit/camera-trap-detection)
 
 
 **Test Datasets** -
@@ -148,3 +168,4 @@ python /home/packerc/rai00007/camera-trap-detection/tfr_visualization_main.py \
     --score_threshold 0.5
 ```
 5. **Decoding Prediction TF Records**:
+After all this, we'd want to export the predictions in a nice CSV and the series of scripts below will help extract the TF Records with predictions into a CSV format.
