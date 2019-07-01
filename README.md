@@ -153,8 +153,8 @@ Once we have the images encoded as TF records on which we want to run prediction
 
 ```
 python <path to tensorflow/models/research/>object_detection/inference/infer_detections.py \
-  --input_tfrecord_paths=<path to input TF record> \
-  --output_tfrecord_path=<'path to the output TF records'> \
+  --input_tfrecord_paths=<path to input TF record, test.record-00000-of-00001> \
+  --output_tfrecord_path=<'path to the output TF records, test_output.record '> \
   --inference_graph=<'path to the trained graph, i.e - trained-inference-graphs/output_inference_graph/frozen_inference_graph.pb'> \
   --discard_image_pixels
 ```
