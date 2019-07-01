@@ -21,8 +21,11 @@ export PYTHONPATH="${PYTHONPATH}:<path to cloned tensorflow object detection api
 ```
 4. Dependent installations for tensorflow's [object_detection_api](https://github.com/tensorflow/models/tree/master/research/object_detection) should be installed by following the instructions mentioned [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)  
 5. Clone this [repository](https://github.com/Manish-rai21bit/training-species-detection)
+6. Clone and add this repository, [camera-trap-detection](https://github.com/Manish-rai21bit/camera-trap-detection.git), to the PYTHONPATH
 
-
+```
+export PYTHONPATH="${PYTHONPATH}:<path to cloned camera-trap-detection api>"
+```
 
 ## Architecture for Detection
 Faster R-CNN architecture pre-trained on the COCO dataset was used to initialise and fine-tuning of the graph.  
