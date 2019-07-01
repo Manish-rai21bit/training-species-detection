@@ -4,8 +4,8 @@
 """
 This function is run using the script:
 python predictorExtractor_main.py \
-    --tfrecord_path_list test_output.record \
-    --output_csv '/home/ubuntu/species_detection/my_workspace/training-species-detection/Predictions/test.csv \
+    --tfrecord_path_list 'test_output.record' \
+    --output_csv '/home/ubuntu/species_detection/my_workspace/training-species-detection/Predictions/test.csv' \
     --label_map_json '/home/ubuntu/data/tensorflow/my_workspace/camera-trap-detection/data/LILA/label_map.json' \
     --score_threshold 0.5;
 """
