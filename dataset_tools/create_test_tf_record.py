@@ -9,6 +9,7 @@ export PYTHONPATH="${PYTHONPATH}:/home/packerc/rai00007/tensorflow/models/resear
 
 python dataset_tools/create_test_tf_record.py \
     --image_list_csv "./Data/dataset_for_testing/msi_snapshot_serengeti.csv" \
+    --images_base_path "/panfs/roc/groups/5/packerc/shared/albums/SER/" \
     --output_tfrecord_file "./test.record" \
     --num_shards 1
 """
@@ -41,9 +42,9 @@ def resize_jpeg(image,  max_side):
 
 
 """ This function creates a tfrecord example from the dictionary element!"""
-def create_tf_example(data_dict):
+def create_tf_example(data_dict, images_base_path):
     #with tf.gfile.GFile(os.path.join(path, '{}'.format(group.filename)), 'rb') as fid:
-    encoded_jpg = resize_jpeg(os.path.join('/panfs/roc/groups/5/packerc/shared/albums/SER/', data_dict) + '.JPG',  1000)
+    encoded_jpg = resize_jpeg(os.path.join(images_base_path, data_dict) + '.JPG',  1000)
     #encoded_jpg_io = io.BytesIO(encoded_jpg)
     #image = Image.open(encoded_jpg_io)
     #width, height = image.size
@@ -62,17 +63,17 @@ def create_tf_example(data_dict):
 """This iterates over each dictionary item, creates tf examples,
     serializes the tfrecord examples and writes to a tfrecord file!!!
     As of now, it saves the TFRecord file in the home directory where the code is executed"""
-def encode_to_tfr_record(test_feature, out_tfr_file, num_shards=1):
+def encode_to_tfr_record(test_feature, images_base_path, out_tfr_file, num_shards=1):
     with contextlib2.ExitStack() as tf_record_close_stack:
         output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
             tf_record_close_stack, out_tfr_file, num_shards)
         for index, example in enumerate(test_feature):
-            tf_example = create_tf_example(example)
+            tf_example = create_tf_example(example, images_base_path)
             output_shard_index = index % num_shards
             output_tfrecords[output_shard_index].write(tf_example.SerializeToString())
 
 
-def main(image_list_csv, output_tfrecord_file, num_shards):
+def main(image_list_csv, images_base_path, output_tfrecord_file, num_shards):
     with open(image_list_csv,'r') as f:
         l = []
         rd = csv.reader(f)
@@ -80,13 +81,17 @@ def main(image_list_csv, output_tfrecord_file, num_shards):
             l.append(val)
 
     event_dict = l[0]
-    encode_to_tfr_record(event_dict, output_tfrecord_file, num_shards)
+    encode_to_tfr_record(event_dict, images_base_path, output_tfrecord_file, num_shards)
 
 if  __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--image_list_csv", type=str, required=True,
         help="path to the list containing the images"
+        )
+    parser.add_argument(
+        "--images_base_path", type=str, required=True,
+        help="base path of where the images rae residing"
         )
     parser.add_argument(
         "--output_tfrecord_file", type=str, required=True,
@@ -99,4 +104,4 @@ if  __name__=='__main__':
 
     args = parser.parse_args()
 
-    main(args.image_list_csv, args.output_tfrecord_file, args.num_shards)
+    main(args.image_list_csv, args.images_base_path, args.output_tfrecord_file, args.num_shards)
