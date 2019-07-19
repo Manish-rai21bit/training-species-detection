@@ -43,4 +43,10 @@ if __name__ == '__main__':
     label_map = dataprep_utils.get_label_map_from_json(args.label_map_json)
     label_map_rev =  {v:k for k, v in label_map.items()}
 
-    predictorExtractor(args.tfrecord_path_list, args.output_csv, label_map_rev)
+    predictorExtractor(args.tfrecord_path_list, 
+                       args.output_csv, 
+                       label_map_rev, 
+                       score_threshold=args.score_threshold,
+                       batch_size=args.batch_size,
+                       discard_image_pixels=args.discard_image_pixels
+                      )
